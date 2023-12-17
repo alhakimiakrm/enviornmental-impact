@@ -1,0 +1,119 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Dark blue background */
+    color: #333;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    overflow-x: hidden;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 200px;
+    position: fixed;
+    left: -180px; /* Hide sidebar except for 20px */
+    top: 0;
+    background-color: rgba(34, 139, 34, .2);
+    transition: left 0.3s; /* Smooth transition for showing and hiding */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    z-index: 1000; /* Ensure sidebar is above other content */
+}
+
+.sidebar a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.sidebar:hover {
+    left: 0; /* Extend out when hovered */
+}
+
+
+.sidebar-tab-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 180px; /* Position at the edge of the hidden sidebar */
+    top: 50%; 
+    transform: translateY(-50%);
+    border-radius: 0 5px 5px 0; /* Rounded corners on the right side */
+    padding: 5px 10px; /* Padding for better shape */
+}
+
+.sidebar-tab-button img {
+    width: 30px; /* Adjust as needed */
+    height: auto;
+
+}
+
+.container {
+    margin-left: 50px; /* Adjusted to account for sidebar */
+    width: calc(80% - 200px); /* Adjust width to account for sidebar */
+    max-width: 600px; /* Adjust max-width accordingly */
+    /* Rest of your container styles */
+}
+
+.container {
+    width: 80%;
+    max-width: 600px; /* Set a max-width for larger screens */
+    margin: auto;
+}
+
+h1 {
+    color: #000000;
+}
+
+form {
+    background-color: rgba(34, 139, 34, 0.2); /* Forest green with 80% opacity */
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+select {
+    margin-bottom: 10px; /* Separation between dropdowns */
+}
+
+input[type="number"],
+select {
+    width: 80%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; /* Separating the button */
+    transition: box-shadow 0.3s ease; /* Smooth transition for the shadow */
+}
+
+button:hover {
+    background-color: #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+}
+
+#result {
+    margin-top: 20px;
+}
