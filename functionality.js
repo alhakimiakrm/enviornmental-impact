@@ -2,15 +2,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('impact-form');
 
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault(); 
         const milesDriven = document.getElementById('miles-driven').value;
+        const vehicleType = document.getElementById('vehicle-type').value;
+        const homeState = document.getElementById('home-state').value;
         
         fetch('http://127.0.0.1:5000/calculate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({miles_driven: parseFloat(milesDriven) || 0}),
+            body: JSON.stringify({
+                miles_driven: parseFloat(milesDriven) || 0,
+                vehicle_type: vehicleType,
+                home_state: homeState
+            }),
         })
         .then(response => response.json())
         .then(data => {
