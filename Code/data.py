@@ -8,14 +8,14 @@ def calculate_impact(data):
     emission_factors = {
         'ICE(Internal Combustion Engines)': 0.411,
         'Diesel': 0.467,
-        'Electric': 0.130,  # This is a generic factor, overridden by state-specific data
+        'Electric': 0.130, 
         'Hybrid': 0.356
     }
     
     vehicle_type = data.get('vehicle_type', 'Gasoline')
     
     if vehicle_type == 'Electric' or vehicle_type == 'Diesel' or vehicle_type == 'Gasoline' or vehicle_type == 'ICE(Internal Combustion Engines)' or vehicle_type == 'Hybrid':
-        # State-specific emission factors per mile for electric vehicles
+        # state-specific emission factors per mile for electric vehicles
         state_emission_modifiers = {
             'AL': 0.0916, 'AK': 0.1275, 'AZ': 0.0722, 'AR': 0.1128, 'CA': 0.0465,
             'CO': 0.1192, 'CT': 0.0581, 'DE': 0.1169, 'FL': 0.0889, 'GA': 0.0822,

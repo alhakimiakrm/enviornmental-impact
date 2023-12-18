@@ -8,7 +8,7 @@
 <body>
     <div class="sidebar">
         <button class="sidebar-tab-button">
-            <img src="image (3).png" alt="Menu">
+            <img src="Images/image (3).png" alt="Menu">
         </button>
         <a href="#home">home</a>
         <a href="#compare">compare your footprint</a>
@@ -16,7 +16,22 @@
     </div>
 
     <div class="container">
+        <div class="arrow left" onclick="previousForm()">&#10094;</div>
+        <div class="arrow right" onclick="nextForm()">&#10095;</div>
+        <img id="logo-image" src="Images/carbon.png" alt="Logo">
         <h1>environmental impact tracker</h1>
+        
+        <form id="electronics-form" class="form-hidden">
+            money spent on electronics: <input type="number" id="electronics-spent"><br>
+            <button type="submit">Calculate Electronics</button>
+        </form>
+
+        <form id="utilities-form" class="form-hidden">
+            number of people in household: <input type="number" id="household-size"><br>
+            money spent on utilities: <input type="number" id="utilities-spent"><br>
+            <button type="submit">Calculate Utilities</button>
+        </form>
+
         <form id="impact-form"> 
             miles driven: <input type="number" id="miles-driven"><br>
             vehicle type 
@@ -26,7 +41,7 @@
                 <option value="Electric">Electric</option>
                 <option value="Hybrid">Hybrid</option>
             </select><br>
-        home State:
+        home state:
         <select id = "home-state">
             <option value = "AL">AL</option>
             <option value = "AK">AK</option>
@@ -88,3 +103,4 @@
 <script src="functionality.js"></script> 
 </body>
 </html>
+
