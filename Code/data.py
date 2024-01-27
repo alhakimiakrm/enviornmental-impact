@@ -4,6 +4,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/')
+def index():
+    return "Welcome to the Environmental Impact Tracker!"
+
 def calculate_impact(data):
     emission_factors = {
         'ICE(Internal Combustion Engines)': 0.411,
@@ -14,7 +18,7 @@ def calculate_impact(data):
     
     vehicle_type = data.get('vehicle_type', 'Gasoline')
     
-    if vehicle_type == 'Electric' or vehicle_type == 'Diesel' or vehicle_type == 'Gasoline' or vehicle_type == 'ICE(Internal Combustion Engines)' or vehicle_type == 'Hybrid':
+    if vehicle_type == 'Electric':
         # state-specific emission factors per mile for electric vehicles
         state_emission_modifiers = {
             'AL': 0.0916, 'AK': 0.1275, 'AZ': 0.0722, 'AR': 0.1128, 'CA': 0.0465,
@@ -32,6 +36,7 @@ def calculate_impact(data):
   
         state = data.get('home_state', 'CA')
         emission_factor = state_emission_modifiers.get(state, emission_factors['Electric'])
+        
     else:
         emission_factor = emission_factors.get(vehicle_type, 0.411)
         
